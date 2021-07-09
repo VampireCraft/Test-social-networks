@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="main">#00214D</color>
+    <color name="secondary">#FDE24F</color>
+    <color name="medium_purple">#7F5AF0</color>
+    <color name="bright_turquoise">#00EBC7</color>
+    <color name="porcelain">#ECEFF1</color>
+    <color name="text">#FFFFFE</color>
+    <color name="bg_help">#90A4AE</color>
+    <color name="sunset_orange">#FF5252</color>
+    <color name="midnight">#011B3E</color>
+    <color name="text_additional">#F8F8F8</color>
+
+</resources>

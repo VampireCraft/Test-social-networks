@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ComeWithMe</string>
+    <string name="user_agreement"><u><a href="https://comewithme.ru/media/doc/terms_of_use.pdf">Нажимая кнопку, Bы принимаешь пользовательское соглашение</a></u></string>
+    <string name="default_notification_channel_id">comewithme</string>
+    <string name="instagram">instagram</string>
+    <string-array name="view_types_dialog_with_camera">
+        <item name="image">Выбрать из галереи</item>
+        <item name="voice">Сделать фото</item>
+    </string-array>
+</resources>

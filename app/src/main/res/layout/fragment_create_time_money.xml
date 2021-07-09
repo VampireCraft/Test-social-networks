@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ProgressBar
+        android:id="@+id/pbEventCreate"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:max="100"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivBtnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:rotation="180"
+        android:src="@drawable/ic_arrow_square"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+
+    <TextView
+        style="@style/text_raleway_regular_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Время-деньги"
+        android:textColor="#F8F8F8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+
+    <TextView
+        android:id="@+id/tvStepsCountTitle"
+        style="@style/text_raleway_regular_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Шаг "
+        app:layout_constraintEnd_toStartOf="@id/tvStepsCount"
+        app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+
+    <TextView
+        android:id="@+id/tvStepsCount"
+        style="@style/text_raleway_regular_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="4/5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+
+
+    <TextView
+        android:id="@+id/tvDateTitle"
+        style="@style/text_raleway_regular_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Когда"
+        android:textColor="@color/text_additional"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBtnBack" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        style="@style/text_raleway_regular_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/decoration_rounded_dark_gray_border"
+        android:drawableStart="@drawable/ic_calendar"
+        android:drawablePadding="12dp"
+        android:hint="08.01.2021"
+        android:padding="8dp"
+        android:textColor="@color/text_additional"
+        android:textColorHint="@color/bright_turquoise"
+        android:textCursorDrawable="@null"
+        app:layout_constraintTop_toBottomOf="@id/tvDateTitle" />
+
+
+    <TextView
+        android:id="@+id/tvTimeTitle"
+        style="@style/text_raleway_regular_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Во сколько"
+        android:textColor="@color/text_additional"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDate" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        style="@style/text_raleway_regular_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/decoration_rounded_dark_gray_border"
+        android:drawableStart="@drawable/ic_watch"
+        android:drawablePadding="12dp"
+        android:hint="17:22"
+        android:padding="8dp"
+        android:textColor="@color/text_additional"
+        android:textColorHint="@color/bright_turquoise"
+        android:textCursorDrawable="@null"
+        app:layout_constraintTop_toBottomOf="@id/tvTimeTitle" />
+
+    <TextView
+        android:id="@+id/tvPriceTitle"
+        style="@style/text_raleway_regular_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Стоимость"
+        android:textColor="@color/text_additional"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTime" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/tvPriceTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiePrice"
+            style="@style/text_raleway_regular_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/decoration_rounded_dark_gray_border"
+            android:drawableStart="@drawable/ic_rouble"
+            android:drawablePadding="12dp"
+            android:hint="100"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="@color/text_additional"
+            android:textColorHint="@color/bright_turquoise"
+            android:textCursorDrawable="@null" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btnNext"
+        style="@style/text_inter_semibold_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/decoration_rounded_yellow_filled"
+        android:text="Дальше"
+        android:textAllCaps="false"
+        android:textColor="@color/main"
+        app:layout_constraintTop_toBottomOf="@id/tilPrice" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

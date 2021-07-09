@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorPrimaryDark">@color/main</item>
+        <item name="colorAccent">@color/midnight</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+
+    <style name="AppTheme.NoAppBar" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorPrimaryDark">@color/main</item>
+        <item name="colorAccent">@color/midnight</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+
+    <style name="text_raleway_regular_24">
+        <item name="android:textColor">@color/text</item>
+        <item name="font">@font/raleway_regular</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="button_raleway_regular_24">
+        <item name="android:textColor">@color/main</item>
+        <item name="font">@font/raleway_regular</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="text_raleway_semibold_20">
+        <item name="android:textColor">@color/text</item>
+        <item name="font">@font/raleway_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="text_raleway_semibold_24">
+        <item name="android:textColor">@color/text</item>
+        <item name="font">@font/raleway_semibold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="text_raleway_semibold_16">
+        <item name="android:textColor">@color/text</item>
+        <item name="font">@font/raleway_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_raleway_regular_16">
+        <item name="android:textColor">@color/text</item>
+        <item name="font">@font/raleway_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_inter_regular_16">
+        <item name="android:textColor">@color/text</item>
+        <item name="font">@font/raleway_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_inter_semibold_16">
+        <item name="android:textColor">@color/text</item>
+        <item name="font">@font/raleway_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_inter_regular_10">
+        <item name="android:textColor">@color/text</item>
+        <item name="font">@font/raleway_regular</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="StyleIsOnlineTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">42dp</item>
+        <item name="android:background">@drawable/bg_text_view_online</item>
+        <item name="android:drawableStart">@drawable/ic_circle_bright_turquoise</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textColor">@color/bright_turquoise</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>

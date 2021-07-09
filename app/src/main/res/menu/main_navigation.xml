@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/event"
+            android:icon="@drawable/ic_users"
+            android:title="События" />
+        <item
+            android:id="@+id/plans"
+            android:icon="@drawable/ic_calendar"
+            android:title="Мои планы" />
+        <item
+            android:id="@+id/create"
+            android:icon="@drawable/ic_add_square"
+            android:title="Создать" />
+        <!--        <item-->
+        <!--            android:id="@+id/search"-->
+        <!--            android:icon="@drawable/ic_search"-->
+        <!--            android:title="Поиск" />-->
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/ic_user"
+            android:title="Профиль" />
+    </group>
+</menu>

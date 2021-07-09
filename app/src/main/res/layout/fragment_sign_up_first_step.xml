@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/main">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/text_raleway_regular_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Как тебя зовут и как\nсвязаться с тобой?"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tieName"
+            style="@style/text_raleway_regular_16"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/decoration_rounded_dark_gray_border"
+            android:drawableStart="@drawable/ic_user"
+            android:drawablePadding="12dp"
+            android:hint="Имя"
+            android:padding="12dp"
+            android:textColorHint="@color/bright_turquoise"
+            android:textCursorDrawable="@null" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/tilName"
+        tools:layout_editor_absoluteX="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tieEmail"
+            style="@style/text_raleway_regular_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/decoration_rounded_dark_gray_border"
+            android:drawableStart="@drawable/ic_mail"
+            android:drawablePadding="12dp"
+            android:hint="example@email.com"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:textColorHint="@color/bright_turquoise"
+            android:textCursorDrawable="@null" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/tilEmail">
+
+        <com.santalu.maskedittext.MaskEditText
+            android:id="@+id/etPhoneNumber"
+            style="@style/text_raleway_regular_16"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/decoration_rounded_dark_gray_border"
+            android:cursorVisible="true"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="12dp"
+            android:hint="+7 (___) ___-__-__"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="10"
+            android:padding="12dp"
+            android:textColorHint="@color/bright_turquoise"
+            app:met_mask="+7(###) ###-##-##" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnNext"
+        style="@style/button_raleway_regular_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/decoration_rounded_yellow_filled"
+        android:text="Дальше"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilPhone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
