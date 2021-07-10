@@ -12,5 +12,7 @@
     <color name="sunset_orange">#FF5252</color>
     <color name="midnight">#011B3E</color>
     <color name="text_additional">#F8F8F8</color>
+    <color name="color_pick">#ffffd300
+    </color>
 
 </resources>

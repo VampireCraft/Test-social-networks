@@ -15,6 +15,17 @@
         <item name="android:forceDarkAllowed">false</item>
     </style>
 
+    <style name="progress_bar" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_custom</item>
+    </style>
+
+    <style name="text_roboto_medium_17_bright_turquoise">
+        <item name="android:textColor">@color/bright_turquoise</item>
+        <item name="font">@font/roboto_medium</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_marginTop">14dp</item>
+    </style>
+
     <style name="text_raleway_regular_24">
         <item name="android:textColor">@color/text</item>
         <item name="font">@font/raleway_regular</item>
@@ -51,8 +62,20 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="text_raleway_regular_16_f8">
+        <item name="android:textColor">@color/text_additional</item>
+        <item name="font">@font/raleway_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="text_inter_regular_16">
         <item name="android:textColor">@color/text</item>
+        <item name="font">@font/raleway_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_inter_regular_16_f8">
+        <item name="android:textColor">@color/text_additional</item>
         <item name="font">@font/raleway_regular</item>
         <item name="android:textSize">16sp</item>
     </style>
@@ -67,6 +90,15 @@
         <item name="android:textColor">@color/text</item>
         <item name="font">@font/raleway_regular</item>
         <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="border_rounded_dark_48dp">
+        <item name="android:layout_height">48dp</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="StyleIsOnlineTextView">

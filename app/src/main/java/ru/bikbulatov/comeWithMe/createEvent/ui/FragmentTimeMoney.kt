@@ -119,12 +119,12 @@ class FragmentTimeMoney : BaseFragment() {
     }
 
     private fun paintProgressBar() {
-        binding.pbEventCreate.progressDrawable.setColorFilter(
-            ContextCompat.getColor(
-                requireContext(),
-                R.color.bright_turquoise
-            ), android.graphics.PorterDuff.Mode.SRC_IN
-        )
+//        binding.pbEventCreate.progressDrawable.setColorFilter(
+//            ContextCompat.getColor(
+//                requireContext(),
+//                R.color.bright_turquoise
+//            ), android.graphics.PorterDuff.Mode.SRC_IN
+//        )
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             binding.pbEventCreate.setProgress(80, true)
         } else

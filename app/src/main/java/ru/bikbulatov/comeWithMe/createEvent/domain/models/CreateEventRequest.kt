@@ -1,5 +1,6 @@
 package ru.bikbulatov.comeWithMe.createEvent.domain.models
 
+import android.util.Base64
 import com.google.gson.annotations.SerializedName
 import ru.bikbulatov.comeWithMe.events.domain.models.TagModel
 

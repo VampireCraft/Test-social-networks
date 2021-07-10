@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
@@ -14,33 +15,33 @@
 
         <ProgressBar
             android:id="@+id/pbEventCreate"
-            style="@android:style/Widget.ProgressBar.Horizontal"
+            style="@style/progress_bar"
             android:layout_width="match_parent"
             android:layout_height="4dp"
+            android:layout_marginTop="11dp"
             android:max="100"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/ivBtnBack"
+            tools:layout_editor_absoluteX="0dp" />
 
         <ImageView
             android:id="@+id/ivBtnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="11dp"
             android:rotation="180"
             android:src="@drawable/ic_arrow_square"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            style="@style/text_raleway_regular_24"
+            style="@style/text_roboto_medium_17_bright_turquoise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="Описание"
-            android:textColor="@color/text_additional"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvStepsCountTitle"
@@ -49,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Шаг "
+            android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@id/tvStepsCount"
             app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
 
@@ -61,20 +63,21 @@
             android:layout_marginEnd="16dp"
             android:text="2/5"
             android:textColor="@color/text_additional"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
 
         <TextView
             android:id="@+id/tvNameTitle"
-            style="@style/text_raleway_regular_16"
+            style="@style/text_inter_regular_16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:text="Название события"
             android:textColor="@color/text_additional"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivBtnBack" />
+            app:layout_constraintTop_toBottomOf="@+id/pbEventCreate" />
 
         <EditText
             android:id="@+id/etName"
@@ -92,12 +95,13 @@
             android:paddingBottom="12dp"
             android:textColor="@color/main"
             android:textColorHint="@color/main"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvNameTitle" />
 
         <TextView
             android:id="@+id/tvDescriptionTitle"
-            style="@style/text_raleway_regular_16"
+            style="@style/text_inter_regular_16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -124,12 +128,13 @@
             android:paddingBottom="12dp"
             android:textColor="@color/main"
             android:textColorHint="@color/main"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDescriptionTitle" />
 
         <TextView
             android:id="@+id/tvMembersCountTitle"
-            style="@style/text_raleway_regular_16"
+            style="@style/text_inter_regular_16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -156,17 +161,18 @@
             android:paddingBottom="12dp"
             android:textColor="@color/main"
             android:textColorHint="@color/main"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMembersCountTitle" />
 
         <TextView
             android:id="@+id/tvTags"
-            style="@style/text_raleway_regular_16"
+            style="@style/text_inter_regular_16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Теги"
+            android:text="Категории"
             android:textColor="@color/text_additional"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etMembersCount" />
@@ -181,7 +187,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/decoration_filled_white"
             android:dropDownAnchor="@id/etMembersCount"
-            android:hint="Теги помогут найти твоё событие"
+            android:hint="Наприер, настольные игры"
             android:paddingStart="8dp"
             android:paddingTop="12dp"
             android:paddingEnd="8dp"
@@ -189,6 +195,8 @@
             android:text=""
             android:textColor="@color/main"
             android:textColorHint="@color/main"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTags" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -217,7 +225,7 @@
 
         <Button
             android:id="@+id/btnNext"
-            style="@style/text_inter_semibold_16"
+            style="@style/text_raleway_regular_16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -229,6 +237,8 @@
             android:textAllCaps="false"
             android:textColor="@color/main"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/clTags" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ import ru.bikbulatov.comeWithMe.createEvent.ui.adapters.ColorsAdapter
 import ru.bikbulatov.comeWithMe.createEvent.ui.vm.CreateEventViewModel
 import ru.bikbulatov.comeWithMe.databinding.FragmentChooseColorBinding
 import java.io.File
+import java.util.*
 
 private const val ARG_TYPE_CREATE_EVENT = "ARG_TYPE_CREATE_EVENT"
 private const val ARG_TYPE_PHOTO_PATH = "ARG_TYPE_PHOTO_PATH"

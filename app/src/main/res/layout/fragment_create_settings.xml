@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
@@ -9,32 +10,32 @@
 
     <ProgressBar
         android:id="@+id/pbEventCreate"
-        style="@android:style/Widget.ProgressBar.Horizontal"
+        style="@style/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="11dp"
+        app:layout_constraintTop_toBottomOf="@+id/ivBtnBack"
+        tools:layout_editor_absoluteX="0dp" />
 
     <ImageView
         android:id="@+id/ivBtnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="11dp"
         android:rotation="180"
         android:src="@drawable/ic_arrow_square"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        style="@style/text_raleway_regular_24"
+        style="@style/text_roboto_medium_17_bright_turquoise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Настройки"
-        android:textColor="#F8F8F8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvStepsCountTitle"
@@ -43,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Шаг "
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/tvStepsCount"
         app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
 
@@ -54,6 +56,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="3/5"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
 
@@ -62,63 +65,65 @@
         style="@style/text_raleway_regular_16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Модерация"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivBtnBack" />
+        app:layout_constraintTop_toBottomOf="@+id/pbEventCreate" />
 
     <LinearLayout
         android:id="@+id/llAutoModerate"
+        style="@style/border_rounded_dark_48dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/decoration_rounded_dark_gray_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvModerationTitle">
 
         <RadioButton
             android:id="@+id/rbAutoModerate"
+            style="@style/text_inter_regular_16_f8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:button="@drawable/radio_group_icons"
             android:checked="true"
             android:padding="8dp"
-            android:text="Авто одобрение участника"
-            android:textColor="@color/text_additional"
-            android:textSize="16sp" />
+            android:text="Авто одобрение участника" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llManualPick"
+        style="@style/border_rounded_dark_48dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:background="@drawable/decoration_rounded_dark_gray_border"
-        app:layout_constraintTop_toBottomOf="@id/llAutoModerate">
+        app:layout_constraintTop_toBottomOf="@id/llAutoModerate"
+        tools:layout_editor_absoluteX="16dp">
 
         <RadioButton
             android:id="@+id/rbManualPick"
+            style="@style/text_inter_regular_16_f8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:button="@drawable/radio_group_icons"
             android:padding="8dp"
             android:text="Ручная модерация участников"
-            android:textColor="@color/bg_help"
-            android:textSize="16sp" />
+            android:textColor="@color/bg_help" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/tvAccessTitle"
-        style="@style/text_raleway_regular_16"
+        style="@style/text_raleway_regular_16_f8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Событие доступно"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,31 +131,29 @@
 
     <LinearLayout
         android:id="@+id/llAccessAll"
+        style="@style/border_rounded_dark_48dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/decoration_rounded_dark_gray_border"
-        app:layout_constraintTop_toBottomOf="@id/tvAccessTitle">
+        app:layout_constraintTop_toBottomOf="@id/tvAccessTitle"
+        tools:layout_editor_absoluteX="16dp">
 
         <RadioButton
             android:id="@+id/rbAccessAll"
+            style="@style/text_inter_regular_16_f8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:button="@drawable/radio_group_icons"
             android:checked="true"
             android:padding="8dp"
-            android:text="Для всех"
-            android:textColor="@color/text_additional"
-            android:textSize="16sp" />
+            android:text="Для всех" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llOnlyGirls"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/border_rounded_dark_48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -159,20 +162,20 @@
 
         <RadioButton
             android:id="@+id/rbOnlyGirls"
+            style="@style/text_inter_regular_16_f8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:button="@drawable/radio_group_icons"
             android:padding="8dp"
             android:text="Только для девушек"
-            android:textColor="@color/bg_help"
-            android:textSize="16sp" />
+            android:textColor="@color/bg_help" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llOnlyBoys"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/border_rounded_dark_48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -181,14 +184,14 @@
 
         <RadioButton
             android:id="@+id/rbOnlyBoys"
+            style="@style/text_inter_regular_16_f8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:button="@drawable/radio_group_icons"
             android:padding="8dp"
             android:text="Только для парней"
-            android:textColor="@color/bg_help"
-            android:textSize="16sp" />
+            android:textColor="@color/bg_help" />
     </LinearLayout>
 
     <Button

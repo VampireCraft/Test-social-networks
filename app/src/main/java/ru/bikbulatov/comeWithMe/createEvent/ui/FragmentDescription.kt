@@ -144,6 +144,7 @@ class FragmentDescription : BaseFragment() {
                     }
                     viewModel.eventCreationRequest.maxCountUsers = s.toString()?.toInt()
                 } catch (e: Exception) {
+
                     showError("Неверный формат данных")
                 }
             }
@@ -151,13 +152,13 @@ class FragmentDescription : BaseFragment() {
     }
 
     private fun paintProgressBar() {
-        binding.pbEventCreate.indeterminateDrawable.colorFilter =
-            PorterDuffColorFilter(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.bright_turquoise
-                ), PorterDuff.Mode.SRC_IN
-            )
+//        binding.pbEventCreate.indeterminateDrawable.colorFilter =
+//            PorterDuffColorFilter(
+//                ContextCompat.getColor(
+//                    requireContext(),
+//                    R.color.bright_turquoise
+//                ), PorterDuff.Mode.SRC_IN
+//            )
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             binding.pbEventCreate.setProgress(40, true)
         } else

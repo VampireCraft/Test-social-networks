@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main"
@@ -9,33 +10,33 @@
 
     <ProgressBar
         android:id="@+id/pbEventCreate"
-        style="@android:style/Widget.ProgressBar.Horizontal"
+        style="@style/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="4dp"
+        android:layout_marginTop="11dp"
         android:max="100"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ivBtnBack"
+        tools:layout_editor_absoluteX="0dp" />
 
     <ImageView
         android:id="@+id/ivBtnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="11dp"
         android:rotation="180"
         android:src="@drawable/ic_arrow_square"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        style="@style/text_raleway_regular_24"
+        style="@style/text_roboto_medium_17_bright_turquoise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Время-деньги"
-        android:textColor="#F8F8F8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvStepsCountTitle"
@@ -44,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Шаг "
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/tvStepsCount"
         app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
 
@@ -55,6 +57,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="4/5"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pbEventCreate" />
 
@@ -65,29 +68,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
         android:text="Когда"
         android:textColor="@color/text_additional"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivBtnBack" />
+        app:layout_constraintTop_toBottomOf="@+id/pbEventCreate" />
 
     <TextView
         android:id="@+id/tvDate"
-        style="@style/text_raleway_regular_16"
+        style="@style/text_inter_regular_16"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/decoration_rounded_dark_gray_border"
         android:drawableStart="@drawable/ic_calendar"
         android:drawablePadding="12dp"
-        android:hint="08.01.2021"
-        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:hint="08.09.2021"
+        android:padding="12dp"
         android:textColor="@color/text_additional"
         android:textColorHint="@color/bright_turquoise"
         android:textCursorDrawable="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDateTitle" />
 
 
@@ -106,20 +111,23 @@
 
     <TextView
         android:id="@+id/tvTime"
-        style="@style/text_raleway_regular_16"
+        style="@style/text_inter_regular_16"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/decoration_rounded_dark_gray_border"
         android:drawableStart="@drawable/ic_watch"
         android:drawablePadding="12dp"
+        android:gravity="center_vertical"
         android:hint="17:22"
-        android:padding="8dp"
+        android:padding="12dp"
         android:textColor="@color/text_additional"
         android:textColorHint="@color/bright_turquoise"
         android:textCursorDrawable="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTimeTitle" />
 
     <TextView
@@ -135,27 +143,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTime" />
 
+    <TextView
+        android:id="@+id/tvSiteTitle"
+        style="@style/text_raleway_regular_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Ссылка на событие"
+        android:textColor="@color/text_additional"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilPrice" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPriceTitle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiePrice"
-            style="@style/text_raleway_regular_16"
+            style="@style/text_inter_regular_16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@drawable/decoration_rounded_dark_gray_border"
             android:drawableStart="@drawable/ic_rouble"
             android:drawablePadding="12dp"
             android:hint="100"
             android:inputType="number"
-            android:padding="8dp"
+            android:padding="12dp"
             android:textColor="@color/text_additional"
             android:textColorHint="@color/bright_turquoise"
             android:textCursorDrawable="@null" />
@@ -163,9 +185,38 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSiteTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tieSite"
+            style="@style/text_inter_regular_16"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/decoration_rounded_dark_gray_border"
+            android:drawableStart="@drawable/ic_web"
+            android:drawablePadding="12dp"
+            android:hint="site.com (необязательно)"
+            android:inputType="number"
+            android:padding="12dp"
+            android:textColor="@color/text_additional"
+            android:textColorHint="@color/bright_turquoise"
+            android:textCursorDrawable="@null" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btnNext"
-        style="@style/text_inter_semibold_16"
+        style="@style/text_raleway_regular_16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -175,6 +226,49 @@
         android:text="Дальше"
         android:textAllCaps="false"
         android:textColor="@color/main"
-        app:layout_constraintTop_toBottomOf="@id/tilPrice" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:button="@drawable/check_group_icons"
+        android:checked="false"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:rotationY="180"
+        android:textColor="@color/text_additional"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilSite" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/checkBox"
+        app:layout_constraintStart_toStartOf="@+id/checkBox"
+        app:layout_constraintTop_toTopOf="@+id/checkBox"
+        app:srcCompat="@drawable/ic_check" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/text_inter_regular_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="Онлайн событие"
+        app:layout_constraintBottom_toBottomOf="@+id/checkBox"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/checkBox" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
