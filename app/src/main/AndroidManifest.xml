@@ -4,8 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -20,7 +21,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true">
+        <meta-data android:name="com.here.android.maps.appid" android:value="TTS86WHeVL4Y0RPw97GH"/>
+        <meta-data android:name="com.here.android.maps.apptoken" android:value="by1t-OW8fJcZkrEiqX8VEQ"/>
+        <meta-data
+            android:name="com.here.android.maps.license.key"
+            android:value="@string/here_map_license_key" />
         <activity
             android:name=".core.ui.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

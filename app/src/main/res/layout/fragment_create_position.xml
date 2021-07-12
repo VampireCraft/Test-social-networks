@@ -8,6 +8,8 @@
     android:clickable="true"
     android:focusable="true">
 
+
+
     <ProgressBar
         android:id="@+id/pbEventCreate"
         style="@style/progress_bar"
@@ -76,8 +78,11 @@
         android:id="@+id/tilAddress"
         style="@style/border_rounded_dark_48dp"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/decoration_rounded_dark_gray_border"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         app:hintEnabled="false"
         app:layout_constraintTop_toBottomOf="@id/tvAddressTitle"
         tools:layout_editor_absoluteX="16dp">
@@ -92,6 +97,8 @@
             android:drawableStart="@drawable/ic_address"
             android:drawablePadding="12dp"
             android:hint="г. Уфа"
+            android:inputType="textMultiLine"
+            android:maxLines="3"
             android:padding="8dp"
             android:textColor="@color/text_additional"
             android:textColorHint="@color/bright_turquoise"

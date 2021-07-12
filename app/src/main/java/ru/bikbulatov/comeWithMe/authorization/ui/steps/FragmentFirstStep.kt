@@ -81,7 +81,7 @@ class FragmentFirstStep : BaseFragment() {
 
     private fun configureNextBtn() {
         binding.btnNext.setOnClickListener {
-            if (isNameValidOrShowError() && isEmailValidOrShowError() && isPhoneValidOrShowError()) {
+            if (isNameValidOrShowError() && isPhoneValidOrShowError()) {
                 viewModel.stepsNavigator.openThirdStep()
                 hideKeyboard()
             }

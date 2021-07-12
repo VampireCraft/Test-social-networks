@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "582998807375",
-    "project_id": "comewithme-a68f6",
-    "storage_bucket": "comewithme-a68f6.appspot.com"
+    "project_number": "555125654840",
+    "project_id": "evento-853c0",
+    "storage_bucket": "evento-853c0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:582998807375:android:c2585f5943ced02eab2b3a",
+        "mobilesdk_app_id": "1:555125654840:android:69d26cd93055c0a1bd2dcd",
         "android_client_info": {
           "package_name": "ru.bikbulatov.comeWithMe"
         }
       },
       "oauth_client": [
         {
-          "client_id": "582998807375-aiqjl65rc42m5trk380fnv4q39oqfd51.apps.googleusercontent.com",
+          "client_id": "555125654840-6o58r7ulfqt71juscakdshqn03gimpt0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCM0uwLFUnMBmjjkESX3wFHpYZb5o27aVM"
+          "current_key": "AIzaSyDMGxw0zUo0GY-ssa3R8vvp4w2mfiHE1BE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "582998807375-aiqjl65rc42m5trk380fnv4q39oqfd51.apps.googleusercontent.com",
+              "client_id": "555125654840-6o58r7ulfqt71juscakdshqn03gimpt0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

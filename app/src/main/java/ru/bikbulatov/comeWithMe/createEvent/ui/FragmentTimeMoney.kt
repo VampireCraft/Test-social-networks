@@ -3,6 +3,7 @@ package ru.bikbulatov.comeWithMe.createEvent.ui
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,10 @@ import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.here.android.mpa.common.ApplicationContext
+import com.here.android.mpa.common.MapEngine
+import com.here.android.mpa.common.MapSettings
+import com.here.android.mpa.common.OnEngineInitListener
 import ru.bikbulatov.comeWithMe.R
 import ru.bikbulatov.comeWithMe.core.ui.BaseFragment
 import ru.bikbulatov.comeWithMe.core.ui.pickers.DatePickerFragment
@@ -17,6 +22,7 @@ import ru.bikbulatov.comeWithMe.core.ui.pickers.PickListener
 import ru.bikbulatov.comeWithMe.core.ui.pickers.TimePickerFragment
 import ru.bikbulatov.comeWithMe.createEvent.ui.vm.CreateEventViewModel
 import ru.bikbulatov.comeWithMe.databinding.FragmentCreateTimeMoneyBinding
+import java.io.File
 import java.util.*
 
 class FragmentTimeMoney : BaseFragment() {
@@ -43,6 +49,18 @@ class FragmentTimeMoney : BaseFragment() {
         configureBackBtn()
         paintProgressBar()
         observeOnTextFields()
+        initMapEngine()
+    }
+
+    fun initMapEngine(){
+        MapSettings.setDiskCacheRootPath(File(activity?.getExternalFilesDir(null),".here-map-data").absolutePath)
+        MapEngine.getInstance().init(ApplicationContext(requireActivity()), OnEngineInitListener { error: OnEngineInitListener.Error? ->
+            if (error != OnEngineInitListener.Error.NONE)
+                Log.e("HERE Error", error.toString())
+            else {
+                Log.d("HERE", "Successful init engine")
+            }
+        })
     }
 
     private fun observeOnTextFields() {

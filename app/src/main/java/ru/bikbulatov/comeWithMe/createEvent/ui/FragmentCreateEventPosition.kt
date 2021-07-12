@@ -22,6 +22,13 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.here.android.mpa.common.ApplicationContext
+import com.here.android.mpa.common.GeoCoordinate
+import com.here.android.mpa.common.MapEngine
+import com.here.android.mpa.common.MapSettings
+import com.here.android.mpa.common.OnEngineInitListener
+import com.here.android.mpa.search.*
+import kotlinx.android.synthetic.main.fragment_create_position.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -54,6 +61,7 @@ class FragmentCreateEventPosition : BaseFragment() {
     private var positionMarker: Marker? = null
     private lateinit var addressPoint: GeoPoint
     val listToCompleteGeoPositions: MutableList<GeoPoint> = mutableListOf()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -66,6 +74,7 @@ class FragmentCreateEventPosition : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //initMapEngine()
         getLocation()
         configureBackBtn()
         configureNextBtn()
@@ -136,18 +145,18 @@ class FragmentCreateEventPosition : BaseFragment() {
                 File(BaseApp.instance.cacheDir.toString() + "/osmCache/")
             osmdroidBasePath =
                 File(BaseApp.instance.cacheDir.toString() + "/osmBase/")
-            tileFileSystemCacheMaxBytes = 30000000
+            tileFileSystemCacheMaxBytes = 50000000
         }
     }
 
     private fun paintProgressBar() {
-//        binding.pbEventCreate.indeterminateDrawable.colorFilter =
-//            PorterDuffColorFilter(
-//                ContextCompat.getColor(
-//                    requireContext(),
-//                    R.color.bright_turquoise
-//                ), PorterDuff.Mode.SRC_IN
-//            )
+        binding.pbEventCreate.indeterminateDrawable.colorFilter =
+            PorterDuffColorFilter(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.bright_turquoise
+                ), PorterDuff.Mode.SRC_IN
+            )
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             binding.pbEventCreate.setProgress(95, true)
         } else
@@ -166,11 +175,23 @@ class FragmentCreateEventPosition : BaseFragment() {
             arrayOf(
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ),
             1000
         )
+    }
+
+    fun initMapEngine(){
+        MapSettings.setDiskCacheRootPath(File(activity?.getExternalFilesDir(null),".here-map-data").absolutePath)
+        MapEngine.getInstance().init(ApplicationContext(requireActivity()), OnEngineInitListener { error: OnEngineInitListener.Error? ->
+            if (error != OnEngineInitListener.Error.NONE)
+                Log.e("HERE Error", error.toString())
+            else {
+                Log.d("HERE", "Successful init engine")
+            }
+        })
     }
 
     fun addRotationGesturesToMap(mapView: MapView) {
@@ -213,14 +234,20 @@ class FragmentCreateEventPosition : BaseFragment() {
 
     private fun getAddressBasedOnLocation(latitude: Double, longitude: Double) {
         try {
-            val geoCoder = Geocoder(requireContext(), Locale.getDefault())
-            val address = geoCoder.getFromLocation(latitude, longitude, 1).firstOrNull()
-            binding.tilAddress.editText?.setText(address?.locality + ", " + address?.thoroughfare + ", " + address?.subThoroughfare)
+
+            val addressRequest = ReverseGeocodeRequest(GeoCoordinate(latitude,longitude))
+            addressRequest.execute { location, errorCode ->
+                if (errorCode == ErrorCode.NONE)
+                    binding.tilAddress.editText?.setText(location?.address?.city+" "+location?.address?.street+" "+ location?.address?.houseNumber)
+                else
+                    Log.e("HERE Error Request", errorCode.toString())
+            }
+
             viewModel.eventCreationRequest.address = binding.tilAddress.editText?.text.toString()
             viewModel.eventCreationRequest.coordinateX = latitude
             viewModel.eventCreationRequest.coordinateY = longitude
         } catch (e: Exception) {
-            Log.d("test159", e.localizedMessage)
+            Log.e("Geocoder", e.localizedMessage)
         }
     }
 
