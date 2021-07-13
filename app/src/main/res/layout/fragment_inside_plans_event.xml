@@ -22,9 +22,10 @@
             <FrameLayout
                 android:id="@+id/flBackground"
                 android:layout_width="match_parent"
-                android:layout_height="176dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/ivBtnBack">
 
                 <ImageView
                     android:id="@+id/ivBackground"
@@ -37,10 +38,10 @@
                 <TextView
                     android:id="@+id/tvIsOnline"
                     style="@style/StyleIsOnlineTextView"
-                    android:text="Онлайн"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="16dp"
                     android:layout_gravity="bottom|end"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Онлайн"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
                 android:rotation="180"
                 android:src="@drawable/ic_arrow_square"
                 app:layout_constraintStart_toStartOf="parent"
@@ -86,11 +87,12 @@
                 style="@style/text_raleway_semibold_24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llAction"
+                app:layout_constraintTop_toBottomOf="@+id/ivBtnBack"
                 app:layout_goneMarginTop="64dp"
                 tools:text="Пошли на SABATON!!!1!!111!!!" />
 
@@ -99,63 +101,47 @@
                 style="@style/text_inter_regular_16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="24dp"
+                android:textColor="#ECEFF1"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/textView5"
                 tools:text="Ищу таких же любителей металла для концерта и бухлаИщу таких же любителей металла для концерта и бухлаИщу таких же любителей металла для концерта и бухлаИщу таких же любителей металла для концерта и бухла" />
 
             <Button
                 android:id="@+id/btnOrganizerPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="24dp"
                 android:background="@drawable/decoration_rounded_yellow_filled"
                 android:text="Организатор: Номер телефона не указан"
                 android:textAllCaps="false"
                 android:textColor="@color/main"
-                app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/tvDescription"
+                tools:layout_editor_absoluteX="16dp" />
 
 
             <LinearLayout
                 android:id="@+id/llEventMainInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
                 android:orientation="horizontal"
                 android:weightSum="3"
-                app:layout_constraintTop_toBottomOf="@id/btnOrganizerPhoto">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_rouble" />
-
-                    <TextView
-                        android:id="@+id/tvPrice"
-                        style="@style/text_inter_regular_16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:textColor="@color/porcelain"
-                        tools:text="от 1600" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -170,12 +156,14 @@
                         android:layout_marginStart="12dp"
                         android:textColor="@color/porcelain"
                         tools:text="17:22" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center|center_vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -190,6 +178,29 @@
                         android:layout_marginStart="12dp"
                         android:textColor="@color/porcelain"
                         tools:text="08.01.2021" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_rouble" />
+
+                    <TextView
+                        android:id="@+id/tvPrice"
+                        style="@style/text_inter_regular_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:textColor="@color/porcelain"
+                        tools:text="от 1600" />
+
                 </LinearLayout>
 
 
@@ -199,7 +210,7 @@
                 android:id="@+id/llAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/llEventMainInfo">
@@ -239,13 +250,15 @@
             <LinearLayout
                 android:id="@+id/llUsers"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
                 android:background="@drawable/decoration_rounded_dark_gray_border"
                 android:gravity="center"
-                app:layout_constraintTop_toBottomOf="@id/tags">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription">
 
                 <Button
                     android:id="@+id/btnUsers"
@@ -263,14 +276,14 @@
             <LinearLayout
                 android:id="@+id/llAdditionalAction"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="24dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
                 android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llUsers">
+                app:layout_constraintBottom_toBottomOf="@+id/flBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <Button
                     android:id="@+id/btnAdditionalAction"
@@ -284,6 +297,29 @@
                     android:textAllCaps="false"
                     android:textColor="@color/sunset_orange" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/text_roboto_medium_17_bright_turquoise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="Подробнее о событии"
+                app:layout_constraintBottom_toTopOf="@+id/flBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/text_inter_semibold_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="Описание"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tags" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </ScrollView>

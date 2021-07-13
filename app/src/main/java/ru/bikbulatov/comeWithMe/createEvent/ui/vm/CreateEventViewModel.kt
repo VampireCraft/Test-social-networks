@@ -5,11 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import ru.bikbulatov.comeWithMe.core.model.Event
 import ru.bikbulatov.comeWithMe.createEvent.domain.CreateEventNavigator
 import ru.bikbulatov.comeWithMe.createEvent.domain.CreateEventRepository
 import ru.bikbulatov.comeWithMe.createEvent.domain.models.ColorGradient
 import ru.bikbulatov.comeWithMe.createEvent.domain.models.CreateEventRequest
+import ru.bikbulatov.comeWithMe.createEvent.domain.models.CreateEventRequestPhoto
 import ru.bikbulatov.comeWithMe.events.domain.models.TagModel
 
 class CreateEventViewModel @ViewModelInject constructor(val createEventRepository: CreateEventRepository) :
@@ -17,6 +20,7 @@ class CreateEventViewModel @ViewModelInject constructor(val createEventRepositor
     var navigator: CreateEventNavigator? = null
 
     var eventCreationRequest = CreateEventRequest()
+    //var eventCreationRequestPhoto = CreateEventRequestPhoto()
     val createEventResponse: MutableLiveData<Event<String>> = MutableLiveData()
     fun createEvent() {
         createEventResponse.value = Event.loading()
@@ -24,6 +28,10 @@ class CreateEventViewModel @ViewModelInject constructor(val createEventRepositor
             createEventResponse.value = createEventRepository.createEvent(eventCreationRequest)
         }
     }
+
+//    private fun prepareStringPart(item:String): MultipartBody.Part{
+//        return MultipartBody.Part.createFormData()
+//    }
 
     val colorGradients: MutableLiveData<Event<List<ColorGradient>>> = MutableLiveData()
     fun getColorGradients() {

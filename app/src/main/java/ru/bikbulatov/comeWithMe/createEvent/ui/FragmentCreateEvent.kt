@@ -124,7 +124,7 @@ class FragmentCreateEvent : BaseFragment() {
                             }
                             CreateEventTypeEnum.EVENT_GALLERY->{
                                 val compressedImageFile = Compressor.compress(requireContext(), imageFiles[0].file){
-                                    resolution(720, 720)
+                                    resolution(1280, 720)
                                     quality(80)
                                     format(Bitmap.CompressFormat.JPEG)
                                 }

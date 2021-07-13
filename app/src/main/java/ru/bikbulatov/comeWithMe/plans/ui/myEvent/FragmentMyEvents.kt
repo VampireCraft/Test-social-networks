@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.bikbulatov.comeWithMe.core.model.Event
 import ru.bikbulatov.comeWithMe.core.model.Status
 import ru.bikbulatov.comeWithMe.databinding.FragmentMyEventsBinding
 import ru.bikbulatov.comeWithMe.events.domain.models.EventModel
 import ru.bikbulatov.comeWithMe.plans.ui.PlansViewModel
 import ru.bikbulatov.comeWithMe.plans.ui.adapter.PlansEventsAdapter
 
-class FragmentMyEvents : Fragment() {
+class FragmentMyEvents : Fragment(), MyEventManager {
     private lateinit var binding: FragmentMyEventsBinding
     private lateinit var viewModel: PlansViewModel
     override fun onCreateView(
@@ -29,6 +30,10 @@ class FragmentMyEvents : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        refreshList()
+    }
+
+    override fun refreshList() {
         viewModel.getMyEvents()
         observeOnMyEvents()
         refreshOnSwipe()

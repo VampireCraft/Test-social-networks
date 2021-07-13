@@ -1,8 +1,6 @@
 package ru.bikbulatov.comeWithMe.createEvent.ui
 
-import android.graphics.Color
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
+import android.graphics.*
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Base64
@@ -15,6 +13,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_choose_color.view.*
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import ru.bikbulatov.comeWithMe.R
 import ru.bikbulatov.comeWithMe.core.model.Status
 import ru.bikbulatov.comeWithMe.core.ui.BaseFragment
@@ -22,6 +23,7 @@ import ru.bikbulatov.comeWithMe.createEvent.domain.models.ColorGradient
 import ru.bikbulatov.comeWithMe.createEvent.ui.adapters.ColorsAdapter
 import ru.bikbulatov.comeWithMe.createEvent.ui.vm.CreateEventViewModel
 import ru.bikbulatov.comeWithMe.databinding.FragmentChooseColorBinding
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.util.*
 
@@ -66,13 +68,14 @@ class FragmentChooseColor : BaseFragment() {
         configureBackBtn()
         paintProgressBar()
 
-        when (typeCreateEvent){
-            CreateEventTypeEnum.EVENT_COLOR->{
+        when (typeCreateEvent) {
+            CreateEventTypeEnum.EVENT_COLOR -> {
                 viewModel.getColorGradients()
                 observeOnColorGradients()
             }
-            CreateEventTypeEnum.EVENT_CAMERA->{
-                viewModel.sendPhoto(photoPath)
+            CreateEventTypeEnum.EVENT_CAMERA -> {
+                viewModel.eventCreationRequest.photo = prepareFilePart(photoPath)
+
                 binding.tvTitleToolbar.text = "Фото"
                 Glide.with(requireView())
                     .load(File(photoPath))
@@ -80,8 +83,9 @@ class FragmentChooseColor : BaseFragment() {
                 binding.ivPhoto.visibility = View.VISIBLE
                 binding.llPickedColor.visibility = View.GONE
             }
-            CreateEventTypeEnum.EVENT_GALLERY->{
-                viewModel.sendPhoto(photoPath)
+            CreateEventTypeEnum.EVENT_GALLERY -> {
+                viewModel.eventCreationRequest.photo = prepareFilePart(photoPath)
+
                 binding.tvTitleToolbar.text = "Фото"
                 Glide.with(requireView())
                     .load(File(photoPath))
@@ -91,9 +95,25 @@ class FragmentChooseColor : BaseFragment() {
             }
         }
 
-        viewModel.sendPhoto.observe(viewLifecycleOwner, {
-            viewModel.eventCreationRequest.photo = it.data.toString()
-        })
+
+//        viewModel.sendPhoto.observe(viewLifecycleOwner, {
+//            viewModel.eventCreationRequest.photo = it.data.toString()
+        //})
+    }
+
+    private fun prepareFilePart(imageUri: String): String {
+//        val file = File(imageUri)
+//        val requestFile = RequestBody.create(
+//            MediaType.parse("image/*"),
+//            file
+//        )
+
+        val baos = ByteArrayOutputStream()
+        BitmapFactory.decodeFile(imageUri).compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        return Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT)//MultipartBody.Part.createFormData(
+            //"photo_event",
+
+        //)
     }
 
     private fun paintProgressBar() {

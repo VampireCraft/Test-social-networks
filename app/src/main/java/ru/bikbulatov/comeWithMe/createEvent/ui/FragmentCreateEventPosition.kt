@@ -155,6 +155,7 @@ class FragmentCreateEventPosition : BaseFragment() {
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.bright_turquoise
+
                 ), PorterDuff.Mode.SRC_IN
             )
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
@@ -237,13 +238,14 @@ class FragmentCreateEventPosition : BaseFragment() {
 
             val addressRequest = ReverseGeocodeRequest(GeoCoordinate(latitude,longitude))
             addressRequest.execute { location, errorCode ->
-                if (errorCode == ErrorCode.NONE)
-                    binding.tilAddress.editText?.setText(location?.address?.city+" "+location?.address?.street+" "+ location?.address?.houseNumber)
-                else
+                if (errorCode == ErrorCode.NONE) {
+                    binding.tilAddress.editText?.setText(location?.address?.city + " " + location?.address?.street + " " + location?.address?.houseNumber)
+                    viewModel.eventCreationRequest.address = binding.tilAddress.editText?.text.toString()
+                }else
                     Log.e("HERE Error Request", errorCode.toString())
             }
 
-            viewModel.eventCreationRequest.address = binding.tilAddress.editText?.text.toString()
+
             viewModel.eventCreationRequest.coordinateX = latitude
             viewModel.eventCreationRequest.coordinateY = longitude
         } catch (e: Exception) {

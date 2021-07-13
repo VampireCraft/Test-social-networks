@@ -1,6 +1,7 @@
 package ru.bikbulatov.comeWithMe.createEvent.data
 
 import android.graphics.Bitmap
+import android.util.Log
 import id.zelory.compressor.Compressor
 import id.zelory.compressor.constraint.format
 import id.zelory.compressor.constraint.quality
@@ -12,6 +13,7 @@ import ru.bikbulatov.comeWithMe.core.model.Event
 import ru.bikbulatov.comeWithMe.createEvent.domain.CreateEventRepository
 import ru.bikbulatov.comeWithMe.createEvent.domain.models.ColorGradient
 import ru.bikbulatov.comeWithMe.createEvent.domain.models.CreateEventRequest
+import ru.bikbulatov.comeWithMe.createEvent.domain.models.CreateEventRequestPhoto
 import ru.bikbulatov.comeWithMe.createEvent.domain.network.CreateEventApi
 import ru.bikbulatov.comeWithMe.events.domain.models.TagModel
 import ru.bikbulatov.comeWithMe.events.domain.networkApi.TagsApi
@@ -40,6 +42,7 @@ class CreateEventRepositoryImpl(val createEventApi: CreateEventApi, val tagsApi:
             val result = tagsApi.getTags()
             when (result.statusId) {
                 200 -> {
+                    Log.d("get Tags", result.data.toString())
                     return Event.success(result.data)
                 }
                 else -> return Event.error(result?.error ?: "Ошибка запроса")
@@ -77,7 +80,7 @@ class CreateEventRepositoryImpl(val createEventApi: CreateEventApi, val tagsApi:
         }
     }
 
-    private fun prepareFilePart(imageUri: String): MultipartBody.Part {
+      private fun prepareFilePart(imageUri: String): MultipartBody.Part {
         val file = File(imageUri)
         val requestFile = RequestBody.create(
             MediaType.parse("image/*"),

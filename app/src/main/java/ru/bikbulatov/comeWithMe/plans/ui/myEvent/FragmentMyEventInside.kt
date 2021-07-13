@@ -13,6 +13,8 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.fragment_inside_plans_event.*
+import ru.bikbulatov.comeWithMe.R
 import ru.bikbulatov.comeWithMe.core.domain.DialogAction
 import ru.bikbulatov.comeWithMe.core.model.Status
 import ru.bikbulatov.comeWithMe.core.ui.TagView
@@ -198,6 +200,8 @@ class FragmentMyEventInside : Fragment() {
                 action = object : DialogAction {
                     override fun onPositiveBtnClicked() {
                         eventViewModel.deleteEvent(eventId = event.id)
+                        plansViewModel.getMyEvents()
+                        parentFragmentManager.popBackStack()
                     }
 
                     override fun onNegativeBtnClicked() {
@@ -208,18 +212,18 @@ class FragmentMyEventInside : Fragment() {
         }
     }
 
-    fun observeOnEventDelete() {
-        eventViewModel.deleteEventResponse.observe(viewLifecycleOwner, {
-            when (it.status) {
-                Status.LOADING -> Log.d("acceptedEvents", "LOADING")
-                Status.SUCCESS -> {
-                    parentFragmentManager.popBackStack()
-                    plansViewModel.getMyEvents()
-                }
-                Status.ERROR -> {
-
-                }
-            }
-        })
+    private fun observeOnEventDelete() {
+//        eventViewModel.deleteEventResponse.observe(viewLifecycleOwner, {
+//            when (it.status) {
+//                Status.LOADING -> Log.d("acceptedEvents", "LOADING")
+//                Status.SUCCESS -> {
+//                    plansViewModel.getMyEvents()
+//                    ivBtnBack.callOnClick()
+//                }
+//                Status.ERROR -> {
+//
+//                }
+//            }
+//        })
     }
 }

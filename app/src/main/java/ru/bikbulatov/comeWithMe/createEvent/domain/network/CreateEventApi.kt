@@ -8,6 +8,8 @@ import ru.bikbulatov.comeWithMe.createEvent.domain.models.ColorGradient
 import ru.bikbulatov.comeWithMe.createEvent.domain.models.CreateEventRequest
 
 interface CreateEventApi {
+
+
     @POST("/api/v0/event/create/")
     suspend fun createEvent(
         @Header("Authorization") jwtToken: String = "JWT " + TokenRepository.accessToken,

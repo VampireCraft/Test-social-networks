@@ -15,6 +15,7 @@ import ru.bikbulatov.comeWithMe.events.domain.EventsRepository
 import ru.bikbulatov.comeWithMe.events.domain.models.EventModel
 import ru.bikbulatov.comeWithMe.plans.domain.PlansRepository
 import ru.bikbulatov.comeWithMe.plans.domain.models.EventMembers
+import ru.bikbulatov.comeWithMe.plans.ui.myEvent.MyEventManager
 import ru.bikbulatov.comeWithMe.profile.domain.ProfileRepository
 import ru.bikbulatov.comeWithMe.profile.domain.models.FcmTokenModel
 import kotlin.math.round
@@ -24,7 +25,8 @@ class EventsViewModel @ViewModelInject constructor(
     private val eventsRepository: EventsRepository,
     private val profileRepository: ProfileRepository,
     private val plansRepository: PlansRepository,
-    private val eventsManager: EventsManager
+    private val eventsManager: EventsManager,
+    //private val myEventManager: MyEventManager
 ) :
     ViewModel() {
     var locationLatitude: Double = 0.0
@@ -184,6 +186,7 @@ class EventsViewModel @ViewModelInject constructor(
         timer?.start()
 
     }
+
 
     val refuseParticipateResponse: MutableLiveData<Event<String>> = MutableLiveData()
     fun refuseParticipate(eventId: Int, userId: Int) {
