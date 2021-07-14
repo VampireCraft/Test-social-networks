@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main">
@@ -10,19 +11,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:rotation="180"
         android:src="@drawable/ic_arrow_square"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        style="@style/text_raleway_regular_24"
+        style="@style/text_roboto_medium_17_bright_turquoise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:text="Личная информация"
-        android:textColor="#F8F8F8"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBtnBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,22 +33,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivBtnBack">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieName"
             style="@style/text_raleway_regular_16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@drawable/decoration_rounded_dark_gray_border"
             android:drawableStart="@drawable/ic_user"
             android:drawablePadding="12dp"
             android:hint="Имя"
-            android:padding="8dp"
-            android:textColorHint="@color/bright_turquoise"
+            android:padding="12dp"
+            android:textColorHint="@color/text_additional"
             android:textCursorDrawable="@null" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -56,18 +59,21 @@
         android:id="@+id/tvBirthday"
         style="@style/text_raleway_regular_16"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/decoration_rounded_dark_gray_border"
         android:drawableStart="@drawable/ic_calendar"
         android:drawablePadding="12dp"
+        android:gravity="center_vertical"
         android:hint="Дата рождения"
-        android:padding="8dp"
+        android:padding="12dp"
         android:textColor="@color/text_additional"
-        android:textColorHint="@color/bright_turquoise"
+        android:textColorHint="@color/text_additional"
         android:textCursorDrawable="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilName" />
 
     <TextView
@@ -75,7 +81,7 @@
         style="@style/text_raleway_regular_16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:drawablePadding="12dp"
         android:text="Пол:"
@@ -86,11 +92,14 @@
     <LinearLayout
         android:id="@+id/llBoy"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/decoration_rounded_dark_gray_border"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvGenderTitle">
 
         <RadioButton
@@ -102,18 +111,21 @@
             android:checked="true"
             android:padding="8dp"
             android:text="Парень"
-            android:textColor="@color/bright_turquoise"
+            android:textColor="@color/text_additional"
             android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llGirl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/decoration_rounded_dark_gray_border"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/llBoy">
 
         <RadioButton
@@ -124,7 +136,33 @@
             android:button="@drawable/radio_group_icons"
             android:padding="8dp"
             android:text="Девушка"
-            android:textColor="@color/bright_turquoise"
+            android:textColor="@color/bg_help"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llOther"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/decoration_rounded_dark_gray_border"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llGirl">
+
+        <RadioButton
+            android:id="@+id/rbOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:button="@drawable/radio_group_icons"
+            android:padding="8dp"
+            android:text="Не определился"
+            android:textColor="@color/bg_help"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -134,13 +172,13 @@
         style="@style/text_raleway_regular_16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:drawablePadding="12dp"
         android:text="О себе"
         app:drawableStartCompat="@drawable/ic_smile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/llGirl" />
+        app:layout_constraintTop_toBottomOf="@+id/llOther" />
 
     <EditText
         android:id="@+id/etAboutMe"

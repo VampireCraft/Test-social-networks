@@ -22,4 +22,10 @@ interface AuthorizationRepo {
     suspend fun restorePassword(login: String): Event<String>
 
     suspend fun sendSmsCode(smsCode: String): Event<String>
+
+    suspend fun sendNewPass(code:String,pass:String):Event<String>
+
+    suspend fun checkPhone(phone: String): Event<String>
+
+    suspend fun sendSmsCodeLogIn(smsCode: String): Event<String>
 }

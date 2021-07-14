@@ -44,7 +44,7 @@ class FragmentLogIn : BaseFragment() {
             it.startAnimation(AnimationUtils.loadAnimation(it.context, R.anim.btn_click))
             if (isLoginValid() && isPasswordValid())
                 viewModel.logIn(
-                    binding.tilLogin.editText?.text.toString(),
+                    binding.tieLogin.rawText,
                     binding.tilPassword.editText?.text.toString()
                 )
             else

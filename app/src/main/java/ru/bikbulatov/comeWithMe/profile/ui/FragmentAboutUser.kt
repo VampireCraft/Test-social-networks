@@ -95,10 +95,17 @@ class FragmentAboutUser : BaseFragment() {
         binding.tvUserPhone.text =
             "+7(" + userModel.phone?.take(3) + ")" + userModel.phone?.substring(3)
 
-        if (userModel.gender == Gender.BOY.id)
-            binding.tvGender.text = "Парень"
-        else
-            binding.tvGender.text = "Девушка"
+        when (userModel.gender){
+            1 -> {
+                binding.tvGender.text = "Парень"
+            }
+            2 -> {
+                binding.tvGender.text = "Девушка"
+            }
+            3 -> {
+                binding.tvGender.text = "Не определился"
+            }
+        }
 
         if (!userModel.instagram.isNullOrEmpty()) {
             binding.ivInstagram.setOnClickListener {

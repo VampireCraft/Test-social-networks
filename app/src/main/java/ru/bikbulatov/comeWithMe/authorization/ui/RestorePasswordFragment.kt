@@ -41,7 +41,8 @@ class RestorePasswordFragment : Fragment() {
         }
 
         binding.btnEnter.setOnClickListener {
-            viewModel.restorePassword(binding.tieLogin.text.toString())
+            viewModel.phoneNumber = binding.tieLogin.rawText
+            viewModel.restorePassword(binding.tieLogin.rawText)
         }
 
         viewModel.restorePasswordResponse.observe(viewLifecycleOwner, {

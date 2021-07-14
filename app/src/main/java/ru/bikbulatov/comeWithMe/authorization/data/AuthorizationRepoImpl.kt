@@ -55,9 +55,9 @@ class AuthorizationRepoImpl @Inject constructor(var logInApi: LogInApi, var sign
                     repeatPassword = password,
                     //email = email,
                     phone = phoneNumber,
-                   // birthDay = birthDay,
+                    // birthDay = birthDay,
                     gender = gender,
-                   // photoUrl = photoUrl
+                    // photoUrl = photoUrl
                 )
             )
             response.data?.let {
@@ -84,7 +84,7 @@ class AuthorizationRepoImpl @Inject constructor(var logInApi: LogInApi, var sign
     override suspend fun restorePassword(login: String): Event<String> {
         return try {
             val result =
-                logInApi.restorePassword(requestRestorePassword = RequestRestorePassword(login))
+                logInApi.restorePassword(requestRestorePassword = RequestRestorePassword(login.toLong()))
             when (result.statusId) {
                 200 -> {
                     Event.success(result.data)
@@ -102,6 +102,57 @@ class AuthorizationRepoImpl @Inject constructor(var logInApi: LogInApi, var sign
         return try {
             val result =
                 logInApi.sendSmsCode(requestSmsCode = RequestSmsCode(smsCode.toInt()))
+            when (result.statusId) {
+                200 -> {
+                    Event.success(result.data)
+                }
+                else -> Event.error(result?.error ?: "Ошибка запроса")
+            }
+        } catch (error: HttpException) {
+            Event.error(
+                error.response()?.errorBody()?.string()?.substringAfter("error_message\":")
+                    ?.filter { it.isLetter() || it.isWhitespace() })
+        }
+    }
+
+    override suspend fun sendNewPass(code: String, pass: String): Event<String> {
+        return try {
+            val result =
+                logInApi.sendNewPass(requestNewPassword = RequestNewPassword(code.toInt(), pass))
+            when (result.statusId) {
+                200 -> {
+                    Event.success(result.data)
+                }
+                else -> Event.error(result?.error ?: "Ошибка запроса")
+            }
+        } catch (error: HttpException) {
+            Event.error(
+                error.response()?.errorBody()?.string()?.substringAfter("error_message\":")
+                    ?.filter { it.isLetter() || it.isWhitespace() })
+        }
+    }
+
+    override suspend fun checkPhone(phone: String): Event<String> {
+        return try {
+            val result =
+                logInApi.checkPhone(requestCheckPhone = RequestCheckPhone(phone.toInt()))
+            when (result.statusId) {
+                200 -> {
+                    Event.success(result.data)
+                }
+                else -> Event.error(result?.error ?: "Ошибка запроса")
+            }
+        } catch (error: HttpException) {
+            Event.error(
+                error.response()?.errorBody()?.string()?.substringAfter("error_message\":")
+                    ?.filter { it.isLetter() || it.isWhitespace() })
+        }
+    }
+
+    override suspend fun sendSmsCodeLogIn(smsCode: String): Event<String> {
+        return try {
+            val result =
+                logInApi.sendSmsCodeLogIn(requestSmsCode = RequestSmsCode(smsCode.toInt()))
             when (result.statusId) {
                 200 -> {
                     Event.success(result.data)

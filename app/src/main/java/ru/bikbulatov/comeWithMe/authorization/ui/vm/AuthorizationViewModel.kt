@@ -21,6 +21,7 @@ class AuthorizationViewModel @ViewModelInject constructor(private val authorizat
     var gender: Int = 0
     var photoUrl: String = ""
     var password: String = ""
+    var code: String = ""
 
     var logInResponse: MutableLiveData<Event<TokenResponse>> = MutableLiveData()
     fun logIn(login: String, password: String) {
@@ -61,6 +62,14 @@ class AuthorizationViewModel @ViewModelInject constructor(private val authorizat
         smsCodeResponse.value = Event.loading()
         CoroutineScope(Dispatchers.IO).launch {
             smsCodeResponse.postValue(authorizationRepo.sendSmsCode(smsCode))
+        }
+    }
+
+    var newPassResponse: MutableLiveData<Event<String>> = MutableLiveData()
+    fun sendNewPass(code: String, pass: String) {
+        newPassResponse.value = Event.loading()
+        CoroutineScope(Dispatchers.IO).launch {
+            newPassResponse.postValue(authorizationRepo.sendNewPass(code, pass))
         }
     }
 }

@@ -2,7 +2,8 @@
     <string name="app_name">Evento</string>
     <string name="user_agreement"><u><a href="https://comewithme.ru/media/doc/terms_of_use.pdf">Нажимая кнопку, Bы принимаешь пользовательское соглашение</a></u></string>
     <string name="default_notification_channel_id">comewithme</string>
-    <string name="instagram">instagram</string>
+    <string name="instagram">@instagram</string>
+    <string name="telegram">@telegram</string>
     <string name="here_map_license_key">WPyPRvcgwqhspNapfLh7oYgSKqOgdSJhc0VqDTFHVxZ2FR9POyvgJ0RWQI7eegHkddKMTKcrW/k0+Q6Ys48LyN4LMNnoVzuXuOMdrKiTMT8CBkiXIRozIyw7rI/3mJ5D5bAB2A3w8uT7Rs/bo8ZpzWV2GLLF7WAPiPLHtZfx92bWlHDdHqc7Pk/Uicd6ekk+f3RyDFcYyeRggyAyCmAB4xjm5yKLNgk8BYO8FruOXoGv8XAjaia2sqkvPQ/DF4JfWp/hJwhyFjn6+S1RMopMg8s5cpwad56aLt/d+R7ot8smhWbPXnQ5EvdXAKAgWZQqfPknazBI2jvVQeRPx2NUPk+TL1sKuBI+KZgsAJ3KsgYgZ8JS3Qun6VCCD+1iyMorQ3pHClklJ0BnyjApIH3Ry4PMMehk3RfxDiYrUxXP/2ZwjwGf9JfY1RwQLP4Yk/C2W14lY4ZcrMDh3aP6jz5NiuWLuQoBMDRfgyn/KSY7nTF+PLZYuXIqAZygJt/TBD7nQhcUvlcVYvCS0rMUTHqhxC6s4FpL6tIrRMJf0E9hN6a9BdXRnQIGugQWQYDt7sVEsz/efevBiH++ym6kVOMuigTS4md1KU0XbbnyzQ2Zwylz20qlMssC0dAfY/PTfiondKmCT0pC4KC3iD1J7iHbi4c4C67sQcyDWLaXXiCMeCg=</string>
     <string-array name="view_types_dialog_with_camera">
         <item name="image">Выбрать из галереи</item>

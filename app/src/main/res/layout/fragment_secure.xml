@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main"
@@ -12,19 +13,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:rotation="180"
         android:src="@drawable/ic_arrow_square"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        style="@style/text_raleway_regular_24"
+        style="@style/text_roboto_medium_17_bright_turquoise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:text="Безопасность"
-        android:textColor="#F8F8F8"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBtnBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,10 +35,10 @@
         style="@style/text_raleway_regular_16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="Сменить пароль"
         android:textColor="#F8F8F8"
-        android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivBtnBack" />
 
@@ -45,22 +46,24 @@
         android:id="@+id/tilPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvLabel">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiePassword"
             style="@style/text_raleway_regular_16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@drawable/decoration_rounded_dark_gray_border"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="12dp"
-            android:inputType="textPassword"
             android:hint="Пароль"
+            android:inputType="textPassword"
             android:padding="8dp"
             android:textColorHint="@color/bright_turquoise"
             android:textCursorDrawable="@null" />
@@ -71,22 +74,24 @@
         android:id="@+id/tilRepeatPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilPassword">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieRepeatPassword"
             style="@style/text_raleway_regular_16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@drawable/decoration_rounded_dark_gray_border"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="12dp"
-            android:inputType="textPassword"
             android:hint="Повтори пароль здесь"
+            android:inputType="textPassword"
             android:padding="8dp"
             android:textColorHint="@color/bright_turquoise"
             android:textCursorDrawable="@null" />
@@ -97,7 +102,7 @@
         android:id="@+id/btnNext"
         style="@style/text_raleway_regular_16"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
@@ -105,5 +110,7 @@
         android:text="Сохранить"
         android:textAllCaps="false"
         android:textColor="@color/main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilRepeatPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

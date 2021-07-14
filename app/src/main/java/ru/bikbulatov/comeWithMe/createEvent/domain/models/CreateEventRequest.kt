@@ -8,7 +8,6 @@ import ru.bikbulatov.comeWithMe.events.domain.models.TagModel
 import java.io.File
 
 class CreateEventRequest(
-    //var multipart: MultipartBody.Part,
     var name: String,
     var description: String,
     @SerializedName("coordinate_x")
@@ -37,7 +36,6 @@ class CreateEventRequest(
     var price: Float? = 0F
 ) {
     constructor() : this(
-        //MultipartBody.Part.createFormData("n",""),
         "",
         "",
         0.0,
@@ -52,11 +50,6 @@ class CreateEventRequest(
         null,
         false
     )
-
-//    fun createMultipart(){
-//        var multipartLocal = MultipartBody.Part.createFormData("name",name)
-//
-//    }
 }
 
 class CreateEventRequestPhoto(

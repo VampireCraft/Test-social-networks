@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main"
@@ -12,19 +13,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:rotation="180"
         android:src="@drawable/ic_arrow_square"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        style="@style/text_raleway_regular_24"
+        style="@style/text_roboto_medium_17_bright_turquoise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Контакты"
-        android:textColor="#F8F8F8"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBtnBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,11 +33,11 @@
         android:id="@+id/tilEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:visibility="gone"
         app:hintEnabled="false"
-        app:layout_constraintTop_toBottomOf="@id/ivBtnBack">
+        app:layout_constraintTop_toBottomOf="@id/ivBtnBack"
+        tools:layout_editor_absoluteX="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieEmail"
@@ -58,17 +58,19 @@
         android:id="@+id/tilPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
-        app:layout_constraintTop_toBottomOf="@id/tilEmail">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBtnBack">
 
         <com.santalu.maskedittext.MaskEditText
             android:id="@+id/etPhoneNumber"
             style="@style/text_raleway_regular_16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@drawable/decoration_rounded_dark_gray_border"
             android:cursorVisible="true"
             android:drawableStart="@drawable/ic_phone"
@@ -78,7 +80,7 @@
             android:inputType="number"
             android:maxLength="10"
             android:padding="8dp"
-            android:textColorHint="@color/bright_turquoise"
+            android:textColorHint="@color/porcelain"
             android:textCursorDrawable="@null"
             app:met_mask="+7(###) ###-##-##" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -87,23 +89,25 @@
         android:id="@+id/tilVk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilPhone">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieVk"
             style="@style/text_raleway_regular_16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@drawable/decoration_rounded_dark_gray_border"
             android:drawableStart="@drawable/ic_vk"
             android:drawablePadding="12dp"
             android:hint="vk.com"
             android:padding="8dp"
-            android:textColorHint="@color/bright_turquoise"
+            android:textColorHint="@color/porcelain"
             android:textCursorDrawable="@null" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -112,23 +116,25 @@
         android:id="@+id/tilInstagram"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilVk">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieInstagram"
             style="@style/text_raleway_regular_16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@drawable/decoration_rounded_dark_gray_border"
             android:drawableStart="@drawable/ic_instagram"
             android:drawablePadding="12dp"
             android:hint="@string/instagram"
             android:padding="8dp"
-            android:textColorHint="@color/bright_turquoise"
+            android:textColorHint="@color/porcelain"
             android:textCursorDrawable="@null" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -137,23 +143,25 @@
         android:id="@+id/tilTelegram"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilInstagram">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tieTelegram"
             style="@style/text_raleway_regular_16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="@drawable/decoration_rounded_dark_gray_border"
             android:drawableStart="@drawable/ic_telegram"
             android:drawablePadding="12dp"
-            android:hint="telegram"
+            android:hint="@string/telegram"
             android:padding="8dp"
-            android:textColorHint="@color/bright_turquoise"
+            android:textColorHint="@color/porcelain"
             android:textCursorDrawable="@null" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -162,7 +170,7 @@
         android:id="@+id/btnNext"
         style="@style/text_raleway_regular_16"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
@@ -170,5 +178,7 @@
         android:text="Сохранить"
         android:textAllCaps="false"
         android:textColor="@color/main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilTelegram" />
 </androidx.constraintlayout.widget.ConstraintLayout>

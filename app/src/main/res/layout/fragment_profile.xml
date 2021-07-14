@@ -10,9 +10,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginStart="16dp"
         android:background="@color/midnight"
         app:layout_constraintBottom_toBottomOf="@id/ivUser"
-        app:layout_constraintEnd_toStartOf="@id/ivUser"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/ivUser">
 
@@ -53,22 +53,22 @@
 
     <ImageView
         android:id="@+id/ivUser"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/test_user_large" />
+        tools:src="@drawable/ic_default_profile_photo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clExit"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/midnight"
         app:layout_constraintBottom_toBottomOf="@id/ivUser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ivUser"
         app:layout_constraintTop_toTopOf="@id/ivUser">
 
         <ImageView
@@ -109,6 +109,8 @@
         android:text="Личная информация"
         android:textColor="@color/bright_turquoise"
         app:drawableStartCompat="@drawable/ic_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivUser" />
 
 
@@ -126,7 +128,27 @@
         android:text="Контакты"
         android:textColor="@color/bright_turquoise"
         app:drawableStartCompat="@drawable/ic_phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUserInfo" />
+
+    <TextView
+        android:id="@+id/tvHistory"
+        style="@style/text_raleway_regular_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/decoration_rounded_dark_gray_border"
+        android:drawablePadding="12dp"
+        android:padding="12dp"
+        android:text="История"
+        android:textColor="@color/bright_turquoise"
+        app:drawableStartCompat="@drawable/ic_history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvContacts" />
 
     <TextView
         android:id="@+id/tvSecure"
@@ -142,6 +164,8 @@
         android:text="Безопасность"
         android:textColor="@color/bright_turquoise"
         app:drawableStartCompat="@drawable/ic_lock"
-        app:layout_constraintTop_toBottomOf="@id/tvContacts" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHistory" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

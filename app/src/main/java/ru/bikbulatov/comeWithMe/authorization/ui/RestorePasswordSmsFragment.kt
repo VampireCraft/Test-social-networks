@@ -34,8 +34,9 @@ class RestorePasswordSmsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.tieCode.addTextChangedListener {
-            if (it.toString().length == 6){
+            if (it.toString().length == 4){
                 viewModel.sendSmsCode(it.toString())
+                viewModel.code = it.toString()
             }
         }
 
@@ -48,7 +49,7 @@ class RestorePasswordSmsFragment : Fragment() {
                     binding.tvErrorMessage.visibility = View.GONE
                     parentFragmentManager
                         .beginTransaction()
-                        .add(R.id.flAuthRoot, RestorePasswordSmsFragment())
+                        .add(R.id.flAuthRoot, EnterRestorePasswordFragment())
                         .commit()
                 }
                 Status.ERROR -> {

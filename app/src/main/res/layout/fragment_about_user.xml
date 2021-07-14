@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:rotation="180"
         android:src="@drawable/ic_arrow_square"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +23,11 @@
         android:id="@+id/ivUser"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/test_user_large" />
+        app:layout_constraintTop_toBottomOf="@+id/ivBtnBack"
+        tools:src="@drawable/ic_default_profile_photo" />
 
     <TextView
         android:id="@+id/tvUserName"
@@ -36,10 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:drawablePadding="12dp"
         android:padding="12dp"
-        android:textColor="@color/bright_turquoise"
+        android:textColor="#F8F8F8"
         app:drawableStartCompat="@drawable/ic_user"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivUser"
@@ -50,14 +49,13 @@
         style="@style/text_raleway_regular_16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:drawablePadding="12dp"
         android:padding="12dp"
-        android:textColor="@color/bright_turquoise"
+        android:textColor="#F8F8F8"
         app:drawableStartCompat="@drawable/ic_star"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvGender"
+        app:layout_constraintStart_toEndOf="@+id/tvUserName"
         app:layout_constraintTop_toBottomOf="@id/ivUser"
         tools:text="4.5" />
 
@@ -68,10 +66,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:drawablePadding="12dp"
         android:padding="12dp"
         android:textColor="@color/bright_turquoise"
+        android:visibility="gone"
         app:drawableStartCompat="@drawable/ic_phone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUserName"
@@ -82,16 +80,15 @@
         style="@style/text_raleway_regular_16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:drawablePadding="12dp"
         android:padding="12dp"
         android:text="Парень"
-        android:textColor="@color/bright_turquoise"
+        android:textColor="#F8F8F8"
         app:drawableStartCompat="@drawable/ic_gender"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/ivUser" />
 
     <TextView
         android:id="@+id/tvAboutUserTitle"
@@ -99,15 +96,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:drawablePadding="12dp"
         android:padding="12dp"
         android:text="О себе"
-        android:textColor="@color/bright_turquoise"
+        android:textColor="#F8F8F8"
         app:drawableStartCompat="@drawable/ic_smile"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUserPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
 
     <TextView
         android:id="@+id/tvAboutUser"
@@ -128,6 +123,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvAboutUserTitle" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -163,13 +159,15 @@
         style="@style/text_raleway_regular_16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/decoration_rounded_yellow_filled"
         android:text="Оставить отзыв"
         android:textAllCaps="false"
         android:textColor="@color/main"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/tvAboutUser" />
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

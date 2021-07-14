@@ -67,7 +67,7 @@
             android:button="@drawable/radio_group_icons"
             android:padding="8dp"
             android:text="Девушка"
-            android:textColor="@color/bright_turquoise"
+            android:textColor="@color/bg_help"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -92,7 +92,7 @@
             android:button="@drawable/radio_group_icons"
             android:padding="8dp"
             android:text="Не определился"
-            android:textColor="@color/bright_turquoise"
+            android:textColor="@color/bg_help"
             android:textSize="16sp"
             tools:text="Хто я?" />
     </LinearLayout>

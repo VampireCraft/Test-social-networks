@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_user_info.*
 import ru.bikbulatov.comeWithMe.R
 import ru.bikbulatov.comeWithMe.authorization.domain.models.Gender
 import ru.bikbulatov.comeWithMe.core.model.Status
@@ -47,10 +48,11 @@ class FragmentUserInfo : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getUserInfo()
+        configureRadioButtons()
         observeOnUserInfo()
         observeOnUserChange()
         configureSaveBtn()
-        configureRadioButtons()
+        //configureRadioButtons()
         configureBackBtn()
         configureClickOnDate()
     }
@@ -110,8 +112,9 @@ class FragmentUserInfo : BaseFragment() {
                 Status.LOADING -> Log.d("userInfo", "LOADING")
                 Status.SUCCESS -> {
                     it.data?.let { userModel ->
-                        setUserInfoToView(userModel)
+
                         userInfo = userModel
+                        setUserInfoToView(userModel)
                         copyToCheckConformity = userModel.copy()
                         observeOnFieldEdit()
                     }
@@ -123,10 +126,17 @@ class FragmentUserInfo : BaseFragment() {
 
     private fun configureRadioButtons() {
         binding.rbBoy.setOnCheckedChangeListener { it, isChecked ->
-            if (it.isPressed) {
+            //if (it.isPressed) {
                 if (isChecked) {
-                    binding.rbGirl.isChecked = false
+                    binding.rbGirl.isChecked = !isChecked
                     binding.rbGirl.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.bg_help
+                        )
+                    )
+                    binding.rbOther.isChecked = !isChecked
+                    binding.rbOther.setTextColor(
                         ContextCompat.getColor(
                             requireContext(),
                             R.color.bg_help
@@ -140,13 +150,20 @@ class FragmentUserInfo : BaseFragment() {
                         )
                     )
                 }
-            }
+            //}
         }
         binding.rbGirl.setOnCheckedChangeListener { it, isChecked ->
-            if (it.isPressed) {
+            //if (it.isPressed) {
                 if (isChecked) {
-                    binding.rbBoy.isChecked = false
+                    binding.rbBoy.isChecked = !isChecked
                     binding.rbBoy.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.bg_help
+                        )
+                    )
+                    binding.rbOther.isChecked = !isChecked
+                    binding.rbOther.setTextColor(
                         ContextCompat.getColor(
                             requireContext(),
                             R.color.bg_help
@@ -160,7 +177,34 @@ class FragmentUserInfo : BaseFragment() {
                         )
                     )
                 }
-            }
+            //}
+        }
+        binding.rbOther.setOnCheckedChangeListener { it, isChecked ->
+            //if (it.isPressed) {
+                if (isChecked) {
+                    binding.rbBoy.isChecked = !isChecked
+                    binding.rbBoy.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.bg_help
+                        )
+                    )
+                    binding.rbGirl.isChecked = !isChecked
+                    binding.rbGirl.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.bg_help
+                        )
+                    )
+                    userInfo.gender = Gender.OTHER.id
+                    it.setTextColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.text_additional
+                        )
+                    )
+                }
+            //}
         }
     }
 
@@ -171,8 +215,20 @@ class FragmentUserInfo : BaseFragment() {
         else
             binding.tvBirthday.hint = "Дата рождения"
         binding.etAboutMe.setText(userModel.aboutMe)
-        binding.rbBoy.isChecked = userModel.gender == 1
-        binding.rbGirl.isChecked = userModel.gender == 2
+        when (userModel.gender){
+            1 ->{
+                binding.rbBoy.isChecked = true
+                binding.rbBoy.callOnClick()
+            }
+            2 ->{
+                binding.rbGirl.isChecked = true
+                binding.rbGirl.callOnClick()
+            }
+            3 ->{
+                binding.rbOther.isChecked = true
+                binding.rbOther.callOnClick()
+            }
+        }
     }
 
     private fun setDateAndTime(eventDateTime: Long?) {
